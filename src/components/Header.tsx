@@ -31,10 +31,10 @@ export default function Header() {
   const pathname = usePathname();
 
   const menuItems = [
-    { label: "Home", path: "/", protected: false, adminOnly: false },
-    { label: "About", path: "/about", protected: false, adminOnly: false },
+    { label: "home", path: "/", protected: false, adminOnly: false },
+    { label: "about", path: "/about", protected: false, adminOnly: false },
     {
-      label: "Protected",
+      label: "protected",
       path: "/protected",
       protected: true,
       adminOnly: false,
@@ -58,7 +58,9 @@ export default function Header() {
         />
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">@rfqma/nextjs-playground</p>
+          <p className="text-xs font-bold text-inherit">
+            rfqma/nextjs-playground
+          </p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -88,7 +90,7 @@ export default function Header() {
                 color="secondary"
                 variant="flat"
               >
-                Login
+                login
               </Button>
             </NavbarItem>
             <NavbarItem>
@@ -98,7 +100,7 @@ export default function Header() {
                 color="primary"
                 variant="flat"
               >
-                Sign Up
+                sign up
               </Button>
             </NavbarItem>
           </div>

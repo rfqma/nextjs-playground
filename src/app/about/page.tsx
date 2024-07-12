@@ -12,7 +12,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Button size="sm">About Page</Button>
 
-      <Card>
+      <Card fullWidth>
         <CardBody>
           {status === "authenticated" ? (
             <p>{JSON.stringify(session)}</p>

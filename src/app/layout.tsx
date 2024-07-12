@@ -6,8 +6,8 @@ import RootLayoutWrapper from "./layoutwrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Auth Simulator by @rfqma",
-  description: "Made with next-auth, nextjs, and nextui",
+  title: "@rfqma/nextjs-playground",
+  description: "wkwk",
 };
 
 export default function RootLayout({

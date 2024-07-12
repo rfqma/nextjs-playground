@@ -1,6 +1,6 @@
 "use client";
 
-import { NextUIProviders } from "./nextuiproviders";
+import { NextUIProviders } from "@/utils/providers/next-ui-providers";
 import Header from "@/components/Header";
 import { usePathname } from "next/navigation";
 import { SessionProvider } from "next-auth/react";
