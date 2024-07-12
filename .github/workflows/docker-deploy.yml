@@ -1,0 +1,42 @@
+name: ci-cd docker vps
+
+on:
+  push:
+    branches: ["master"]
+
+env:
+  REGISTRY: dockerhub.io
+  IMAGE_NAME: rfqma/nextjs-playground:latest
+
+jobs:
+  publish:
+    name: publish docker image
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to docker
+        run: |
+          echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{secrets.DOCKER_HUB_USERNAME}} --password-stdin
+      - name: Build and Publish in docker hub
+        run: |
+          docker-compose build
+          docker-compose push
+
+  deploy:
+    needs: publish
+    name: deploy image in remote vps
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to vps and deploy
+        uses: appleboy/ssh-action@v0.1.3
+        with:
+          host: ${{secrets.REMOTE_SSH_HOST}}
+          username: ${{secrets.REMOTE_SSH_USER}}
+          password: ${{ secrets.REMOTE_SSH_PW }}
+          port: 22
+          script: |
+            cd ${{ secrets.REMOTE_WORKING_DIR }}
+            docker-compose pull
+            docker-compose up -d
