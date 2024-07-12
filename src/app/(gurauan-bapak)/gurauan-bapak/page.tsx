@@ -1,10 +1,13 @@
-import { Metadata } from "next";
-import GenerateGurauanButton from "../GenerateGurauanButton";
+"use client";
 
-export const metadata: Metadata = {
-  title: "gurauan bapak",
-  description: "wkwk",
-};
+import GenerateGurauanButton from "../GenerateGurauanButton";
+import { useState, useEffect } from "react";
+
+interface DataProps {
+  code: number;
+  msg: string;
+  data: string;
+}
 
 const getRandomGurauanBapak = async () => {
   try {
@@ -29,12 +32,21 @@ const getRandomGurauanBapak = async () => {
   }
 };
 
-export default async function Page() {
-  const data = await getRandomGurauanBapak();
+export default function Page() {
+  const [data, setData] = useState<DataProps | null>(null);
+
+  const fetchData = async () => {
+    const result = await getRandomGurauanBapak();
+    setData(result);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col gap-10 items-center p-24">
-      <GenerateGurauanButton />
+      <GenerateGurauanButton refreshData={fetchData} />
       {data !== null && data.code === 200 && data.msg === "Success" ? (
         <h3 className="text-2xl text-center italic">{data.data}</h3>
       ) : (

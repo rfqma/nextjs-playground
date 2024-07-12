@@ -1,24 +1,30 @@
 "use client";
 
 import { Button } from "@nextui-org/button";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function GenerateGurauanButton() {
-  const router = useRouter();
+interface GenerateGurauanButtonProps {
+  refreshData: () => void;
+}
+
+export default function GenerateGurauanButton({
+  refreshData,
+}: GenerateGurauanButtonProps) {
   const [loading, setLoading] = useState<boolean>(false);
+
+  const handleGenerateGurauanButton = () => {
+    setLoading(true);
+    refreshData();
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
 
   return (
     <Button
       color="secondary"
       size="sm"
-      onClick={() => {
-        setLoading(true);
-        router.refresh();
-        setTimeout(() => {
-          setLoading(false);
-        }, 500);
-      }}
+      onClick={handleGenerateGurauanButton}
       isLoading={loading}
     >
       generate gurauan bapak
