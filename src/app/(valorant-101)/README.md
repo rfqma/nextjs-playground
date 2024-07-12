@@ -1,1 +1,1 @@
-[api](https://valorant-api.com/v1)
+[https://valorant-api.com/](https://valorant-api.com/)
