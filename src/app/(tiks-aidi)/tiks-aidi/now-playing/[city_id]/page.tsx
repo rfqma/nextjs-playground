@@ -86,6 +86,7 @@ export default async function Page(params: { params: { city_id: string } }) {
                   as={Link}
                   href={item.trailer_path}
                   target={"_blank"}
+                  key={index}
                 >
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                     <p className="text-tiny uppercase font-bold">
