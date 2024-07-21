@@ -25,6 +25,9 @@ export default function Home() {
         <Button as={Link} href="/valorant-101" size="sm" color="primary">
           valorant-101
         </Button>
+        <Button as={Link} href="/tiks-aidi" size="sm" color="primary">
+          tiks-aidi
+        </Button>
       </div>
 
       <Card fullWidth>
