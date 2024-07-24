@@ -36,8 +36,8 @@ export default function Page() {
   const [data, setData] = useState<DataProps | null>(null);
 
   const fetchData = async () => {
-    const result = await getRandomGurauanBapak();
-    setData(result);
+    const results = await getRandomGurauanBapak();
+    setData(results);
   };
 
   useEffect(() => {

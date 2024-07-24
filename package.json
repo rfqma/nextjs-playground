@@ -23,7 +23,8 @@
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.4.0"
+    "tailwind-merge": "^2.4.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

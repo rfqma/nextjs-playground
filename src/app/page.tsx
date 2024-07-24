@@ -28,6 +28,9 @@ export default function Home() {
         <Button as={Link} href="/tiks-aidi" size="sm" color="primary">
           tiks-aidi
         </Button>
+        <Button as={Link} href="/bmkg" size="sm" color="primary">
+          bmkg
+        </Button>
       </div>
 
       <Card fullWidth>
