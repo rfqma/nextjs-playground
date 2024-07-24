@@ -35,9 +35,9 @@ const getAllCities = async () => {
 
     const data = await results.json();
 
-    if (data.success === false) {
-      return null;
-    }
+    // if (data.success === false) {
+    //   return null;
+    // }
 
     return data;
   } catch (error) {
@@ -74,7 +74,7 @@ export default async function Page() {
       <div className="flex flex-col gap-5 w-full">
         <BreadcrumbsWrapper items={breadcrumbItems} />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {data.success === true && data.results.length > 0 ? (
+          {data.results.length > 0 ? (
             data.results.map((item: CityProps, index: number) => {
               return (
                 <City

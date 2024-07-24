@@ -40,9 +40,9 @@ const getAllNowPlayingsByCity = async (city_id: string) => {
 
     const data = await results.json();
 
-    if (data.success === false) {
-      return null;
-    }
+    // if (data.success === false) {
+    //   return null;
+    // }
 
     return data;
   } catch (error) {
@@ -78,7 +78,7 @@ export default async function Page(params: { params: { city_id: string } }) {
       <div className="flex flex-col gap-5 w-full">
         <BreadcrumbsWrapper items={breadcrumbItems} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-          {data.success === true && data.results.length > 0 ? (
+          {data.results.length > 0 ? (
             data.results.map((item: any, index: number) => {
               return (
                 <Card
