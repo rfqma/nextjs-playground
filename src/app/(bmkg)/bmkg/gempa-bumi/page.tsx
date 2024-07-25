@@ -45,7 +45,6 @@ export default async function Page() {
   ];
 
   const data = await getLatestGempaBumiInfo();
-  console.log(data);
 
   const convertTimestampString = async (timestamp: string) => {
     const year = timestamp.substring(0, 4);
@@ -62,7 +61,7 @@ export default async function Page() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col items-center p-5">
       <div className="flex flex-col gap-5 w-full">
         <BreadcrumbsWrapper items={breadcrumbItems} />
         <div className="flex flex-col gap-2">
